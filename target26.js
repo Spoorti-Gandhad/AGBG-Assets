@@ -70,7 +70,7 @@ looker.plugins.visualizations.add({
       var ws = XLSX.utils.table_to_sheet(table);
 
       XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
-      sheet.getRange("A1:E5").format.fill.color = "yellow";
+      ws.getRange("A1:E5").format.fill.color = "yellow";
       // Loop through each row and cell in the worksheet and set the cell styles
       var range = XLSX.utils.decode_range(ws["!ref"]);
       for (var row = range.s.r; row <= range.e.r; row++) {
