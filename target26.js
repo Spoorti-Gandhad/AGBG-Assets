@@ -104,7 +104,6 @@ looker.plugins.visualizations.add({
         }
         var ctx = {Worksheet: 'Worksheet', table: table.innerHTML}
         var styleSheet = ctx.Worksheet['styles.xml'];
-        console.log("--stylesheet------ : "+styleSheet);
         //window.location.href = uri + base64(format(template, ctx))
         const downloadUrl = uri + base64(format(template, ctx));
         console.log(downloadUrl); // Prints the download URL to the console
