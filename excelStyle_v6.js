@@ -104,6 +104,9 @@ looker.plugins.visualizations.add({
         }
         var ctx = {Worksheet: 'Worksheet', table: table.innerHTML};
          console.log("--ctx ---styleSheet : "+ctx);
+          ctx.forEach(function(ctxEle){
+          console.log("----ctx element : "+ctxEle);
+          });
         var styleSheet = ctx['styles.xml'];
         console.log(ctx+"-----styleSheet : "+styleSheet);
         var tagName = styleSheet.getElementsByTagName('sz');
