@@ -102,8 +102,9 @@ looker.plugins.visualizations.add({
             cell.setAttribute('style', style);
           }
         }
-        var ctx = {Worksheet: 'Worksheet', table: table.innerHTML}
-        var styleSheet = ctx.Worksheet;//['styles.xml'];
+        var ctx = {Worksheet: 'Worksheet', table: table.innerHTML};
+         console.log("--ctx ---styleSheet : "+ctx);
+        var styleSheet = ctx['styles.xml'];
         console.log("-----styleSheet : "+styleSheet);
         var tagName = styleSheet.getElementsByTagName('sz');
         for (i = 0; i < tagName.length; i++) {
