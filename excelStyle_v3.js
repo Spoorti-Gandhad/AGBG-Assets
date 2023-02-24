@@ -104,6 +104,7 @@ looker.plugins.visualizations.add({
         }
         var ctx = {Worksheet: 'Worksheet', table: table.innerHTML}
         var styleSheet = ctx.Worksheet;//['styles.xml'];
+        console.log("-----styleSheet : "+styleSheet);
         var tagName = styleSheet.getElementsByTagName('sz');
         for (i = 0; i < tagName.length; i++) {
           tagName[i].setAttribute("val", "22")
