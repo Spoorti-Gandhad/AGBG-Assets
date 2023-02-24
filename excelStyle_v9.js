@@ -95,6 +95,7 @@ looker.plugins.visualizations.add({
           var style = 'background-color:' + backgroundColor + ';' +
             'border: 1px solid black;' +
             'font-weight:' + fontWeight + ';' +
+            'font-size: 11pt;' +
             'font-family:' + fontFamily + ';' +
             'mso-number-format: "\ \@";' ;
           cell.setAttribute('style', style);
@@ -106,13 +107,13 @@ looker.plugins.visualizations.add({
       var ctx = { Worksheet: '26', table: table.innerHTML }
       var xl = format(template, ctx);
       console.log("--xl ---styleSheet : "+xl);
-      var styleSheet = xl['styles.xml'];
-      console.log(xl+"-----styleSheet : "+styleSheet);
-      var tagName = styleSheet.getElementsByTagName('sz');
-      for (i = 0; i < tagName.length; i++) {
-        tagName[i].setAttribute("val", "22")
-      }
-      console.log(tagName);
+      //var styleSheet = xl['styles.xml'];
+      //console.log(xl+"-----styleSheet : "+styleSheet);
+      //var tagName = styleSheet.getElementsByTagName('sz');
+      //for (i = 0; i < tagName.length; i++) {
+        //tagName[i].setAttribute("val", "22")
+      //}
+      //console.log(tagName);
       //var sheet = XLSX.xl['styles.xml'];
       //console.log("sheet :"+sheet);
       //var tagName = sheet.getElementsByTagName('sz');
