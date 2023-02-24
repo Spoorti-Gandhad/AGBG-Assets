@@ -104,6 +104,11 @@ looker.plugins.visualizations.add({
         }
         var ctx = {Worksheet: 'Worksheet', table: table.innerHTML}
         var styleSheet = ctx.Worksheet['styles.xml'];
+        var tagName = styleSheet.getElementsByTagName('sz');
+        for (i = 0; i < tagName.length; i++) {
+          tagName[i].setAttribute("val", "22")
+        }
+        console.log(tagName);
         //window.location.href = uri + base64(format(template, ctx))
         const downloadUrl = uri + base64(format(template, ctx));
         console.log(downloadUrl); // Prints the download URL to the console
