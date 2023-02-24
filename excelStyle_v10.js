@@ -106,19 +106,6 @@ looker.plugins.visualizations.add({
       document.head.appendChild(XLSX);
       var ctx = { Worksheet: '26', table: table.innerHTML }
       var xl = format(template, ctx);
-      console.log("--xl ---styleSheet : "+xl);
-      //var styleSheet = xl['styles.xml'];
-      //console.log(xl+"-----styleSheet : "+styleSheet);
-      //var tagName = styleSheet.getElementsByTagName('sz');
-      //for (i = 0; i < tagName.length; i++) {
-        //tagName[i].setAttribute("val", "22")
-      //}
-      //console.log(tagName);
-      //var sheet = XLSX.xl['styles.xml'];
-      //console.log("sheet :"+sheet);
-      //var tagName = sheet.getElementsByTagName('sz');
-      //console.log("font-size :"+tagName);
-      //window.location.href = uri + base64(format(template, ctx))
       const downloadUrl = uri + base64(xl);
       console.log(downloadUrl); // Prints the download URL to the console
       window.location.href = downloadUrl;
