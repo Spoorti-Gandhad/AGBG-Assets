@@ -110,18 +110,13 @@ looker.plugins.visualizations.add({
       //sleep(1000);
       //window.open(downloadUrl);
       //window.open(downloadUrl, "_blank");
-      //setTimeout(window.open(downloadUrl, 'Download'),1000);
-      //const link = document.createElement('a');
-      //link.href = downloadUrl;
-      //link.setAttribute('download', 'downloadMe.xls'); //or any other extension
-      //document.body.appendChild(link);
-      //link.click();
-      //var newwindow=window.open(downloadUrl,"window1","");
-      downloadLink = document.createElement("a");
-      document.body.appendChild(downloadLink);
-      downloadLink.href = downloadUrl;
-      //downloadLink.download = 'sheet.xls';
-      downloadLink.click();
+       var link = document.createElement("a");
+       link.download = 'sheet.xls';
+       link.href = downloadUrl;
+       document.body.appendChild(link);
+       link.click();
+       document.body.removeChild(link);
+       delete link;
     });
   },
   
