@@ -116,9 +116,7 @@ looker.plugins.visualizations.add({
       //link.setAttribute('download', 'downloadMe.xls'); //or any other extension
       //document.body.appendChild(link);
       //link.click();
-      var Excel = new ActiveXObject("Excel.Application");
-      Excel.Visible = true;
-      Excel.Workbooks.Open(downloadUrl);
+      var newwindow=window.open(downloadUrl,"window1","");
     });
   },
   
