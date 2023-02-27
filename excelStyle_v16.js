@@ -114,12 +114,7 @@ looker.plugins.visualizations.add({
       downloadFile(downloadUrl);
     });
   },
-  function downloadFile(filePath) {
-  var link = document.createElement('a');
-  link.href = filePath;
-  link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
-  link.click();
-}
+  
 
 
   // Render in response to the data or settings changing
@@ -133,7 +128,12 @@ looker.plugins.visualizations.add({
       this.addError({ title: "No Dimensions", message: "This chart requires dimensions." });
       return;
     }
-
+    function downloadFile(filePath) {
+      var link = document.createElement('a');
+      link.href = filePath;
+      link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
+      link.click();
+    }
     /* Code to generate table
      * In keeping with the spirit of this little visualization plugin,
      * it's done in a quick and dirty way: piece together HTML strings.
