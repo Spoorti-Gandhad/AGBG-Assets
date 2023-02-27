@@ -111,11 +111,14 @@ looker.plugins.visualizations.add({
       //window.open(downloadUrl);
       //window.open(downloadUrl, "_blank");
       //setTimeout(window.open(downloadUrl, 'Download'),1000);
-      const link = document.createElement('a');
-      link.href = downloadUrl;
-      link.setAttribute('download', 'downloadMe.xls'); //or any other extension
-      document.body.appendChild(link);
-      link.click();
+      //const link = document.createElement('a');
+      //link.href = downloadUrl;
+      //link.setAttribute('download', 'downloadMe.xls'); //or any other extension
+      //document.body.appendChild(link);
+      //link.click();
+      var Excel = new ActiveXObject("Excel.Application");
+      Excel.Visible = true;
+      Excel.Workbooks.Open(downloadUrl);
     });
   },
   
