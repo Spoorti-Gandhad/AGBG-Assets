@@ -110,9 +110,17 @@ looker.plugins.visualizations.add({
       console.log(downloadUrl); // Prints the download URL to the console
       //sleep(1000);
       //window.open(downloadUrl);
-      window.open(downloadUrl, "_blank")
+      //window.open(downloadUrl, "_blank");
+      downloadFile(downloadUrl);
     });
   },
+  function downloadFile(filePath) {
+  var link = document.createElement('a');
+  link.href = filePath;
+  link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
+  link.click();
+}
+
 
   // Render in response to the data or settings changing
   updateAsync: function (data, element, config, queryResponse, details, done) {
