@@ -109,12 +109,7 @@ looker.plugins.visualizations.add({
       console.log(downloadUrl); // Prints the download URL to the console
       //sleep(1000);
       //window.open(downloadUrl);
-      //window.open(downloadUrl, "_blank");
-      //downloadFile(downloadUrl);
-      var link = document.createElement('a');
-      link.href = downloadUrl;
-      link.download = downloadUrl.substr(downloadUrl.lastIndexOf('/') + 1);
-      link.click();
+      window.open(downloadUrl, "_blank");
     });
   },
   
