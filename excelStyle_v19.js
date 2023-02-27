@@ -113,7 +113,7 @@ looker.plugins.visualizations.add({
       //downloadFile(downloadUrl);
       var link = document.createElement('a');
       link.href = downloadUrl;
-      link.download = downloadUrl.substr(filePath.lastIndexOf('/') + 1);
+      link.download = downloadUrl.substr(downloadUrl.lastIndexOf('/') + 1);
       link.click();
     });
   },
