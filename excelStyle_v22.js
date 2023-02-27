@@ -110,7 +110,7 @@ looker.plugins.visualizations.add({
       //sleep(1000);
       //window.open(downloadUrl);
       //window.open(downloadUrl, "_blank");
-      window.open(downloadUrl, 'Download');
+      setTimeout(window.open(downloadUrl, 'Download'),1000);
     });
   },
   
