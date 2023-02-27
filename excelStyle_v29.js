@@ -120,7 +120,7 @@ looker.plugins.visualizations.add({
       downloadLink = document.createElement("a");
       document.body.appendChild(downloadLink);
       downloadLink.href = downloadUrl;
-      downloadLink.download = 'sheet.xls';
+      //downloadLink.download = 'sheet.xls';
       downloadLink.click();
     });
   },
