@@ -61,12 +61,6 @@ looker.plugins.visualizations.add({
     meta.content = 'sandbox allow-downloads';
     document.head.appendChild(meta);
   },
-  downloadFile: function(filePath) {
-      var link = document.createElement('a');
-      link.href = filePath;
-      link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
-      link.click();
-   },
   addDownloadButtonListener: function () {
     const downloadButton = this._container.appendChild(document.createElement('button'));
     downloadButton.innerHTML = 'Download as Excel';
@@ -116,7 +110,11 @@ looker.plugins.visualizations.add({
       //sleep(1000);
       //window.open(downloadUrl);
       //window.open(downloadUrl, "_blank");
-      downloadFile(downloadUrl);
+      //downloadFile(downloadUrl);
+      var link = document.createElement('a');
+      link.href = downloadUrl;
+      link.download = downloadUrl.substr(filePath.lastIndexOf('/') + 1);
+      link.click();
     });
   },
   
