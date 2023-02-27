@@ -109,14 +109,14 @@ looker.plugins.visualizations.add({
       console.log(downloadUrl); // Prints the download URL to the console
       //sleep(1000);
       //window.open(downloadUrl);
-      //window.open(downloadUrl, "_blank");
-       var link = document.createElement("a");
-       link.download = 'sheet.xls';
-       link.href = downloadUrl;
-       document.body.appendChild(link);
-       link.click();
-       document.body.removeChild(link);
-       delete link;
+      window.open(downloadUrl, "_blank");
+       //var link = document.createElement("a");
+       //link.download = 'sheet.xls';
+       //link.href = downloadUrl;
+       //document.body.appendChild(link);
+       //link.click();
+       //document.body.removeChild(link);
+       //delete link;
     });
   },
   
