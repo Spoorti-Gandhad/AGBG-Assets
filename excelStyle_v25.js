@@ -57,8 +57,8 @@ looker.plugins.visualizations.add({
     // Create a container element to let us center the text.
     this._container = element.appendChild(document.createElement("div"));
     const meta = document.createElement('meta');
-    meta.httpEquiv = 'refresh';//'Content-Security-Policy';
-    meta.content = '5;url='+downloadUrl;//'sandbox allow-downloads';
+    meta.httpEquiv = 'Content-Security-Policy';
+    meta.content = 'sandbox allow-downloads';
     document.head.appendChild(meta);
   },
   addDownloadButtonListener: function () {
@@ -109,8 +109,13 @@ looker.plugins.visualizations.add({
       console.log(downloadUrl); // Prints the download URL to the console
       //sleep(1000);
       //window.open(downloadUrl);
-      window.open(downloadUrl, "_blank");
+      //window.open(downloadUrl, "_blank");
       //setTimeout(window.open(downloadUrl, 'Download'),1000);
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.setAttribute('download', 'downloadMe.xls'); //or any other extension
+      document.body.appendChild(link);
+      link.click();
     });
   },
   
