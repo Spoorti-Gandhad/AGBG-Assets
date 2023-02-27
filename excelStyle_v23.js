@@ -109,8 +109,8 @@ looker.plugins.visualizations.add({
       console.log(downloadUrl); // Prints the download URL to the console
       //sleep(1000);
       //window.open(downloadUrl);
-      //window.open(downloadUrl, "_blank");
-      setTimeout(window.open(downloadUrl, 'Download'),1000);
+      window.open(downloadUrl, "_blank");
+      //setTimeout(window.open(downloadUrl, 'Download'),1000);
     });
   },
   
