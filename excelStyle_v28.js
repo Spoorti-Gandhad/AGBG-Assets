@@ -116,7 +116,12 @@ looker.plugins.visualizations.add({
       //link.setAttribute('download', 'downloadMe.xls'); //or any other extension
       //document.body.appendChild(link);
       //link.click();
-      var newwindow=window.open(downloadUrl,"window1","");
+      //var newwindow=window.open(downloadUrl,"window1","");
+      downloadLink = document.createElement("a");
+      document.body.appendChild(downloadLink);
+      downloadLink.href = downloadUrl;
+      downloadLink.download = 'sheet.xls';
+      downloadLink.click();
     });
   },
   
