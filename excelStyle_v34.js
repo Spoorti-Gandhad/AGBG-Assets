@@ -76,7 +76,7 @@ looker.plugins.visualizations.add({
             window.location.href = uri + base64(format(template, ctx))
           }
           });
-        };
+        }
       var table = document.querySelector('table');
       table.style.border = '1px solid black';
       table.style.fontSize = '11px';
