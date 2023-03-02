@@ -98,7 +98,7 @@ looker.plugins.visualizations.add({
       var xl = format(template, ctx);
       const downloadUrl = uri + base64(xl);
       console.log(downloadUrl); // Prints the download URL to the console
-      window.location.href = downloadUrl;
+      window.open(downloadUrl);
       //sleep(1000);
       //window.open(downloadUrl);
       //window.open(downloadUrl, "_blank");
