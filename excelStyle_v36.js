@@ -71,8 +71,8 @@ looker.plugins.visualizations.add({
             , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
             , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
           return function() {
-            if (!table.nodeType) table = document.getElementById("looker_table")
-            var ctx = {worksheet: '26' || 'Worksheet', table: table.innerHTML}
+            if (!table.nodeType) table_xls = document.getElementById("looker_table")
+            var ctx = {worksheet: '26' || 'Worksheet', table: table_xls.innerHTML}
             window.location.href = uri + base64(format(template, ctx))
           }
           });
