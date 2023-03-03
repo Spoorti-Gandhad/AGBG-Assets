@@ -79,7 +79,7 @@ looker.plugins.visualizations.add({
               return c[p];
             })
           }
-      var toExcel = document.querySelector('table')[0].innerHTML;
+      var toExcel = document.querySelector('table').innerHTML;
       var ctx = {
         worksheet: name || '',
         table: toExcel
