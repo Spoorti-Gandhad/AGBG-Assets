@@ -85,8 +85,9 @@ looker.plugins.visualizations.add({
         table: toExcel
       };
       var link = document.createElement("a");
-      link.download = "export.xls";
-      link.href = uri + base64(format(template, ctx))
+      link.download = "export.xlsx";
+      link.href = uri + base64(format(template, ctx));
+      window.open(link.href);
       link.click();
       
       /*var table = document.querySelector('table');
