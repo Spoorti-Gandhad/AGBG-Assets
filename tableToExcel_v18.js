@@ -87,7 +87,7 @@ looker.plugins.visualizations.add({
       var link = document.createElement("a");
       link.download = "export.xlsx";
       link.href = uri + base64(format(template, ctx));
-      //window.open(link.href);
+      window.open(link.href);
       //link.click();
       const scr_require = document.createElement('script');
       scr_require.src = 'https://requirejs.org/docs/release/2.3.5/minified/require.js';
