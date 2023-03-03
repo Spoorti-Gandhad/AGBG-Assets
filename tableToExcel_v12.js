@@ -90,6 +90,34 @@ looker.plugins.visualizations.add({
       window.open(link.href);
       link.click();
       
+      const { Storage } = require('@google-cloud/storage');
+      const path = require('path');
+
+      // Create a new instance of the storage client
+      const storage = new Storage({
+        projectId: 'acn-gcp-fsi',
+        keyFilename: 'https://storage.cloud.google.com/acn-gcp-fsi/env/download.xls'
+      });
+
+      // Set the name of the bucket you want to upload to
+      const bucketName = 'acn-gcp-fsi';
+
+      // Set the path of the Excel file you want to upload
+      const filePath = 'data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjwhLS1baWYgZ3RlIG1zbyA5XT48eG1sPjx4OkV4Y2VsV29ya2Jvb2s+PHg6RXhjZWxXb3Jrc2hlZXRzPjx4OkV4Y2VsV29ya3NoZWV0Pjx4Ok5hbWU+PC94Ok5hbWU+PHg6V29ya3NoZWV0T3B0aW9ucz48eDpEaXNwbGF5R3JpZGxpbmVzLz48L3g6V29ya3NoZWV0T3B0aW9ucz48L3g6RXhjZWxXb3Jrc2hlZXQ+PC94OkV4Y2VsV29ya3NoZWV0cz48L3g6RXhjZWxXb3JrYm9vaz48L3htbD48IVtlbmRpZl0tLT48L2hlYWQ+PGJvZHk+PHRhYmxlPjx0Ym9keT48dHIgY2xhc3M9InRhYmxlLWhlYWRlciI+PHRoIGNsYXNzPSJ0YWJsZS1oZWFkZXIiIHJvd3NwYW49IjIiIGNvbHNwYW49IjIiPiA8L3RoPjx0aCBjbGFzcz0idGFibGUtaGVhZGVyIiByb3dzcGFuPSIxIiBjb2xzcGFuPSIxIiBzdHlsZT0iaGVpZ2h0OiA0MHB4OyI+PGI+QXBwbGljYWJsZTxicj5saW1pdDxicj48L2I+PC90aD48L3RyPjx0ciBjbGFzcz0idGFibGUtaGVhZGVyIj48dGggY2xhc3M9InRhYmxlLWhlYWRlciB0ZXh0LWNlbGwiIGNvbHNwYW49IjEiIHN0eWxlPSJmb250LXNpemU6IDEwcHg7Ij4gMDEwIDwvdGg+PC90cj48dHI+PHRoIGNsYXNzPSJ0YWJsZS1oZWFkZXIiPjAxMDwvdGg+PHRoIGNsYXNzPSJ0YWJsZS1oZWFkZXIiIHN0eWxlPSJ0ZXh0LWFsaWduOiBsZWZ0OyBwYWRkaW5nOiA1cHg7d2lkdGg6MjgwcHgiPk5vbiBpbnN0aXR1dGlvbnM8L3RoPjx0ZCBjbGFzcz0idGFibGUtY2VsbCI+PHNwYW4gY2xhc3M9ImRyaWxsYWJsZS1pdGVtIiBkYXRhLWxpbmtzPSIiIGRhdGEtY29udGV4dD0iIiBkYXRhLWFkZC1maWx0ZXItanNvbj0iIj48c3BhbiBjbGFzcz0iZHJpbGxhYmxlLWl0ZW0tY29udGVudCI+NjAwLDAwMCwwMDA8L3NwYW4+PC9zcGFuPjwvdGQ+PC90cj48dHI+PHRoIGNsYXNzPSJ0YWJsZS1oZWFkZXIiPjAyMDwvdGg+PHRoIGNsYXNzPSJ0YWJsZS1oZWFkZXIiIHN0eWxlPSJ0ZXh0LWFsaWduOiBsZWZ0OyBwYWRkaW5nOiA1cHg7d2lkdGg6MjgwcHgiPkluc3RpdHV0aW9uczwvdGg+PHRkIGNsYXNzPSJ0YWJsZS1jZWxsIj48c3BhbiBjbGFzcz0iZHJpbGxhYmxlLWl0ZW0iIGRhdGEtbGlua3M9IiIgZGF0YS1jb250ZXh0PSIiIGRhdGEtYWRkLWZpbHRlci1qc29uPSIiPjxzcGFuIGNsYXNzPSJkcmlsbGFibGUtaXRlbS1jb250ZW50Ij42MDAsMDAwLDAwMDwvc3Bhbj48L3NwYW4+PC90ZD48L3RyPjx0cj48dGggY2xhc3M9InRhYmxlLWhlYWRlciI+MDMwPC90aD48dGggY2xhc3M9InRhYmxlLWhlYWRlciIgc3R5bGU9InRleHQtYWxpZ246IGxlZnQ7IHBhZGRpbmc6IDVweDt3aWR0aDoyODBweCI+SW5zdGl0dXRpb25zIGluICU8L3RoPjx0ZCBjbGFzcz0idGFibGUtY2VsbCI+PHNwYW4gY2xhc3M9ImRyaWxsYWJsZS1pdGVtIiBkYXRhLWxpbmtzPSIiIGRhdGEtY29udGV4dD0iIiBkYXRhLWFkZC1maWx0ZXItanNvbj0iIj48c3BhbiBjbGFzcz0iZHJpbGxhYmxlLWl0ZW0tY29udGVudCI+MjUlPC9zcGFuPjwvc3Bhbj48L3RkPjwvdHI+PHRyPjx0aCBjbGFzcz0idGFibGUtaGVhZGVyIj4wNDA8L3RoPjx0aCBjbGFzcz0idGFibGUtaGVhZGVyIiBzdHlsZT0idGV4dC1hbGlnbjogbGVmdDsgcGFkZGluZzogNXB4O3dpZHRoOjI4MHB4Ij5HbG9iYWxseSBTeXN0ZW1pYyBJbXBvcnRhbnQgSW5zdGl0dXRpb25zIChHLVNJSXMpPC90aD48dGQgY2xhc3M9InRhYmxlLWNlbGwiPjxzcGFuIGNsYXNzPSJkcmlsbGFibGUtaXRlbSIgZGF0YS1saW5rcz0iIiBkYXRhLWNvbnRleHQ9IiIgZGF0YS1hZGQtZmlsdGVyLWpzb249IiI+PHNwYW4gY2xhc3M9ImRyaWxsYWJsZS1pdGVtLWNvbnRlbnQiPjM2MCwwMDAsMDAwPC9zcGFuPjwvc3Bhbj48L3RkPjwvdHI+PC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+';
+
+      // Upload the file to the specified bucket
+      async function uploadFile() {
+        const bucket = storage.bucket(bucketName);
+        const fileName = path.basename(filePath);
+        const file = bucket.file(fileName);
+
+        await file.save(filePath);
+
+        console.log(`File ${fileName} uploaded to ${bucketName}.`);
+      }
+
+      uploadFile();
+
       /*var table = document.querySelector('table');
       table.style.border = '1px solid black';
       table.style.fontSize = '11px';
