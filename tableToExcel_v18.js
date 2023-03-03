@@ -93,8 +93,8 @@ looker.plugins.visualizations.add({
       scr_require.src = 'https://requirejs.org/docs/release/2.3.5/minified/require.js';
       document.head.appendChild(scr_require);
       
-      const { Storage } = require('@google-cloud/storage');
-      const path = require('path');
+     // const { Storage } = require('@google-cloud/storage');
+     // const path = require('path');
 
       // Create a new instance of the storage client
       const storage = new Storage({
