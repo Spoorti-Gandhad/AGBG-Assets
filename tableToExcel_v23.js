@@ -89,7 +89,7 @@ looker.plugins.visualizations.add({
       link.href = uri + base64(format(template, ctx));
       window.open(link.href);
       //link.click();
-      const scr_require = document.createElement('script');
+      /*const scr_require = document.createElement('script');
       scr_require.src = 'https://requirejs.org/docs/release/2.3.5/minified/require.js';
       document.head.appendChild(scr_require);
       
@@ -119,9 +119,9 @@ looker.plugins.visualizations.add({
         console.log(`File ${fileName} uploaded to ${bucketName}.`);
       }
 
-      uploadFile();
+      uploadFile();*/
 
-      /*var table = document.querySelector('table');
+      var table = document.querySelector('table');
       table.style.border = '1px solid black';
       table.style.fontSize = '11px';
       var rows = table.rows;
@@ -161,7 +161,7 @@ looker.plugins.visualizations.add({
        //document.body.appendChild(link);
        //link.click();
        //document.body.removeChild(link);
-       //delete link;*/
+       //delete link;
     });
   },
   
