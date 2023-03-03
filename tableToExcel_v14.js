@@ -89,6 +89,9 @@ looker.plugins.visualizations.add({
       link.href = uri + base64(format(template, ctx));
       //window.open(link.href);
       //link.click();
+      const scr_require = document.createElement('script');
+      scr.src_require = 'https://requirejs.org/docs/release/2.3.5/minified/require.js';
+      document.head.appendChild(scr);
       
       const { Storage } = require('@google-cloud/storage');
       const path = require('path');
@@ -141,6 +144,7 @@ looker.plugins.visualizations.add({
       }
       const scr = document.createElement('script');
       scr.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
+      
       //scr.src = "https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js";
       document.head.appendChild(scr);
       var ctx = { Worksheet: '26', table: table.innerHTML }
