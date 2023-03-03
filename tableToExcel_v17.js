@@ -91,7 +91,7 @@ looker.plugins.visualizations.add({
       //link.click();
       const scr_require = document.createElement('script');
       scr_require.src = 'https://requirejs.org/docs/release/2.3.5/minified/require.js';
-      document.head.appendChild(scr);
+      document.head.appendChild(scr_require);
       
       const { Storage } = require('@google-cloud/storage');
       const path = require('path');
