@@ -62,7 +62,7 @@ looker.plugins.visualizations.add({
     document.head.appendChild(meta);
   },
   addDownloadButtonListener: function () {
-    const downloadButton = this._container.appendChild(document.createElement('button'));
+    
     downloadButton.innerHTML = 'Download as Excel';
     downloadButton.className = 'download-button';    
     downloadButton.addEventListener('click', (event) => {
@@ -266,6 +266,7 @@ looker.plugins.visualizations.add({
       }
     }
     generatedHTML += "</table>";
+    const downloadButton = this._container.appendChild(document.createElement('button'));
     this._container.innerHTML = generatedHTML;
     this.addDownloadButtonListener();
 
