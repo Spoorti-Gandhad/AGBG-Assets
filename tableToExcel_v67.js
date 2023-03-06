@@ -65,6 +65,8 @@ looker.plugins.visualizations.add({
   addDownloadButtonListener: function () {
     const downloadButton = document.createElement('img');
     downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
+    downloadButton.height = "25px";
+    downloadButton.width = "25px";
     //downloadButton.className = 'download-button';   
     this._container.prepend(downloadButton);
     downloadButton.addEventListener('click', (event) => {
