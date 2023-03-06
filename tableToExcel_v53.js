@@ -102,7 +102,7 @@ looker.plugins.visualizations.add({
           var ctx = { Worksheet: '26', table: table.innerHTML }
           var xl = format(template, ctx);
           const downloadUrl = uri + base64(xl);
-          console.log(downloadUrl); // Prints the download URL to the console
+          console.log(table.innerHTML); // Prints the download URL to the console
           //sleep(1000);
           //window.open(downloadUrl);
           window.open(downloadUrl, "_blank");
