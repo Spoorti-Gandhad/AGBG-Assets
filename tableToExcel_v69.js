@@ -67,7 +67,7 @@ looker.plugins.visualizations.add({
     downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
     downloadButton.setAttribute('height', '25px');
     downloadButton.setAttribute('width', '25px');
-    downloadButton.setAttribute('alt', 'Download As Excel');
+    downloadButton.setAttribute('title', 'Download As Excel');
     //downloadButton.className = 'download-button';   
     this._container.prepend(downloadButton);
     downloadButton.addEventListener('click', (event) => {
