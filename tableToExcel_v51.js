@@ -98,6 +98,7 @@ looker.plugins.visualizations.add({
           const XLSX = document.createElement('script');
           XLSX.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
           document.head.appendChild(XLSX);
+          table.prepend("<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;'>* All values reported are in millions </th></tr>");
           var ctx = { Worksheet: '26', table: table.innerHTML }
           var xl = format(template, ctx);
           const downloadUrl = uri + base64(xl);
