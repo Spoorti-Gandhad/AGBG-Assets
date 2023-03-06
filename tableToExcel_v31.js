@@ -43,7 +43,7 @@ looker.plugins.visualizations.add({
             border-collapse: collapse;
             font-weight: normal;
             font-family: 'Verdana';
-            font-size: 11px;
+            font-size: 11pt;
             align-items: center;
             text-align: center;
             margin: auto;
