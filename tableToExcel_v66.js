@@ -63,9 +63,9 @@ looker.plugins.visualizations.add({
   },
 
   addDownloadButtonListener: function () {
-    const downloadButton = document.createElement('button');
-    downloadButton.innerHTML = '<img src="./downloadAsExcel.jfif" alt="Download as Excel">';
-    downloadButton.className = 'download-button';   
+    const downloadButton = document.createElement('img');
+    downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
+    //downloadButton.className = 'download-button';   
     this._container.prepend(downloadButton);
     downloadButton.addEventListener('click', (event) => {
           var uri = 'data:application/vnd.ms-excel;base64,'
