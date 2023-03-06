@@ -52,6 +52,11 @@ looker.plugins.visualizations.add({
           .text-cell {
             mso-number-format: \@;
           }
+          p{
+            font-weight: normal;
+            font-family: 'Verdana';
+            font-size: 11pt;
+          }
         </style>
       `;
     // Create a container element to let us center the text.
