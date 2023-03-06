@@ -178,11 +178,13 @@ looker.plugins.visualizations.add({
       }
     }
     generatedHTML += `<table class='table'>`;
-    
+    generatedHTML += "<tr class='table-header'>";
+    generatedHTML += "<th class='table-header' rowspan='1' colspan='2' style='font-family:Verdana;width:100%;font-weight:bold;font-size:14px;align-items:center;text-align:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</th>";
+    generatedHTML += "</tr>";
     generatedHTML += "<tr class='table-header'>";
     generatedHTML += "<th class='table-header' rowspan='1' colspan='2' style='font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;'>* All values reported are in millions </th>";
-    generatedHTML += "<th class='table-header' rowspan='1' colspan='9' style='font-family:Verdana;width:100%;font-weight:bold;font-size:14px;align-items:center;text-align:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</th>";
     generatedHTML += "</tr>";
+   
  
     generatedHTML += "<tr class='table-header'>";
     generatedHTML += `<th class='table-header' rowspan='2' colspan='2' style='border: 1px solid black;background-color: #eee;color: #eee'>t</th>`;
