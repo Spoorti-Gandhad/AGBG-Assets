@@ -62,7 +62,7 @@ looker.plugins.visualizations.add({
     document.head.appendChild(meta);
   },
   addDownloadButtonListener: function () {
-    const downloadButton = this._container.appendChild(document.createElement('button'));
+    const downloadButton = this._container.prepend(document.createElement('button'));
     downloadButton.innerHTML = 'Download as Excel';
     downloadButton.className = 'download-button';    
     downloadButton.addEventListener('click', (event) => {
