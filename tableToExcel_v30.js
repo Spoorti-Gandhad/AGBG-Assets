@@ -7,7 +7,7 @@ looker.plugins.visualizations.add({
   options: {
     font_size: {
       type: "number",
-      label: "Font Size (px)",
+      label: "Font Size (pt)",
       default: 11
     }
   },
@@ -18,7 +18,7 @@ looker.plugins.visualizations.add({
     element.innerHTML = `
         <style>
           .table {
-            font-size: 11px;
+            font-size: 11pt;
             border: 1px solid black;
             border-collapse: collapse;
             margin:auto;
@@ -29,7 +29,7 @@ looker.plugins.visualizations.add({
             border-collapse: collapse;
             font-weight: normal;
             font-family: 'Verdana';
-            font-size: 11px;
+            font-size: 11pt;
             align-items: center;
             text-align: center;
             margin: auto;
