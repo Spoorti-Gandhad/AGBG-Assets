@@ -55,7 +55,7 @@ looker.plugins.visualizations.add({
           p{
             font-weight: normal;
             font-family: 'Verdana';
-            font-size: 11pt;
+            font-size: 11pt !important;
           }
         </style>
       `;
