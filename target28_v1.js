@@ -77,10 +77,18 @@ looker.plugins.visualizations.add({
     `;
 
     // Create a container element to let us center the text.
-    const div = document.createElement("div");
-    div.classList.add('div');
-    this._container = element.appendChild(div);
-
+    //const div = document.createElement("div");
+    //div.classList.add('div');
+    //this._container = element.appendChild(div);
+    this._container = element.appendChild(document.createElement("div"));
+    //const div = document.createElement("div");
+    const meta = document.createElement('meta');
+    //div.classList.add('div');
+    meta.httpEquiv = 'Content-Security-Policy';
+    meta.content = 'sandbox allow-downloads';
+    //this._container = element.appendChild(div);
+    document.head.appendChild(meta);
+    
   },
 
   addDownloadButtonListener: function () {
