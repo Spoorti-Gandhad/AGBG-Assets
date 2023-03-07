@@ -97,6 +97,7 @@ looker.plugins.visualizations.add({
     downloadButton.setAttribute('height', '25px');
     downloadButton.setAttribute('width', '25px');
     downloadButton.setAttribute('title', 'Download As Excel'); 
+    downloadButton.style.marginLeft='90%';
     this._container.prepend(downloadButton);
     downloadButton.addEventListener('click', (event) => {
       var uri = 'data:application/vnd.ms-excel;base64,'
