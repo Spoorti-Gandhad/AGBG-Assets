@@ -77,18 +77,10 @@ looker.plugins.visualizations.add({
     `;
 
     // Create a container element to let us center the text.
-    //const div = document.createElement("div");
-    //div.classList.add('div');
-    //this._container = element.appendChild(div);
-    this._container = element.appendChild(document.createElement("div"));
-    //const div = document.createElement("div");
-    const meta = document.createElement('meta');
-    //div.classList.add('div');
-    meta.httpEquiv = 'Content-Security-Policy';
-    meta.content = 'sandbox allow-downloads';
-    //this._container = element.appendChild(div);
-    document.head.appendChild(meta);
-    
+    const div = document.createElement("div");
+    div.classList.add('div');
+    this._container = element.appendChild(div);
+
   },
 
   addDownloadButtonListener: function () {
@@ -130,9 +122,9 @@ looker.plugins.visualizations.add({
       const XLSX = document.createElement('script');
       XLSX.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
       document.head.appendChild(XLSX);
-      //var ctx = { Worksheet: '29', table: table.innerHTML }
+      //var ctx = { Worksheet: '29', table: table.innerHTML };
       var ctx = { Worksheet: '28', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 28.00 - Exposures in the non-trading and trading book (LE 2)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
-         
+          
       var xl = format(template, ctx);
       const downloadUrl = uri + base64(xl);
       console.log(downloadUrl); // Prints the download URL to the console
