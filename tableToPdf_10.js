@@ -134,7 +134,7 @@ looker.plugins.visualizations.add({
       console.log(downloadUrl); // Prints the download URL to the console
       //sleep(1000);
       window.open(downloadUrl, "_blank");
-      //const newTab=window.open(downloadUrl, "_blank");
+      //const newTab=window.open(downloadUrl);
       var doc = new jsPDF();
       var source = table.innerHTML;
       //doc.fromHTML(source,15,15,{
