@@ -102,14 +102,17 @@ looker.plugins.visualizations.add({
         this._container.prepend(downloadButton);
         const jspdf_cdn = document.createElement('script');
         //jspdf_cdn.src = "https://unpkg.com/jspdf";
-        jspdf_cdn.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js";
+        jspdf_cdn.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js";
+         //"https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js";
         jspdf_cdn.type = "text/javascript";
         document.head.appendChild(jspdf_cdn);
+         window.jsPDF = window.jspdf.jsPDF;
         //const jsPdfAutoTable = document.createElement('script');
         //window.jsPDF = window.jspdf.jsPDF;
         //jsPdfAutoTable.src = "https://unpkg.com/jspdf-autotable";
         //document.head.appendChild(jsPdfAutoTable);
         // var doc = new jsPDF();
+         
         var pdf = new jsPDF('p', 'pt', 'letter');
         downloadButton.addEventListener('click', (event) => {
         
