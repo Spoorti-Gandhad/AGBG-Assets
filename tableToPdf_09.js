@@ -138,8 +138,8 @@ looker.plugins.visualizations.add({
       var doc = new jsPDF();
       var source = table.innerHTML;
       //doc.fromHTML(source,15,15,{
-	    	'width': 170//,'elementHandlers': specialElementHandlers
-	    });
+	    	//'width': 170//,'elementHandlers': specialElementHandlers
+	   // });
 	  //doc.save('sample-file.pdf')
       doc.addHTML(document.body,function() {
     	doc.save('web.pdf');
