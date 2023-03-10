@@ -102,14 +102,15 @@ looker.plugins.visualizations.add({
         downloadButton.setAttribute('title', 'Download As Pdf'); 
         downloadButton.style.marginLeft='90%';
         this._container.prepend(downloadButton);
-        const cdn = document.createElement('script');
-        cdn.src = "https://unpkg.com/jspdf";
-        document.head.appendChild(cdn);
+        const jspdf_cdn = document.createElement('script');
+        jspdf_cdn.src = "https://unpkg.com/jspdf";
+        document.head.appendChild(jspdf_cdn);
         const jsPdfAutoTable = document.createElement('script');
+        window.jsPDF = window.jspdf.jsPDF;
         jsPdfAutoTable.src = "https://unpkg.com/jspdf-autotable";
         document.head.appendChild(jsPdfAutoTable);
         downloadButton.addEventListener('click', (event) => {
-         var doc = new jsPDF();
+        var doc = new jsPDF();
         //A4 - 595x842 pts
         //https://www.gnu.org/software/gv/manual/html_node/Paper-Keywords-and-paper-size-in-points.html
     
