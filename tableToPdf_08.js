@@ -126,7 +126,7 @@ looker.plugins.visualizations.add({
       var ctx = { Worksheet: '29', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
       
       const pdf_cdn = document.createElement('script');
-      pdf_cdn.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.debug.js";
+      pdf_cdn.src ="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js";//"https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.debug.js";
       document.head.appendChild(pdf_cdn);
 	    
       var xl = format(template, ctx);
@@ -137,16 +137,13 @@ looker.plugins.visualizations.add({
       //const newTab=window.open(downloadUrl, "_blank");
       var doc = new jsPDF();
       var source = table.innerHTML;
-      doc.fromHTML(
-	    source,
-	    15,
-	    15, 
-	    {
-	      'width': 170//,
-	      //'elementHandlers': specialElementHandlers
-	    }
-	  );
-	  doc.save('sample-file.pdf')
+      //doc.fromHTML(source,15,15,{
+	    	'width': 170//,'elementHandlers': specialElementHandlers
+	    });
+	  //doc.save('sample-file.pdf')
+      doc.addHTML(document.body,function() {
+    	doc.save('web.pdf');
+      });
     });
   },
 
