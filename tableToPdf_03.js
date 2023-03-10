@@ -106,10 +106,11 @@ looker.plugins.visualizations.add({
         jspdf_cdn.type = "text/javascript";
         document.head.appendChild(jspdf_cdn);
         //const jsPdfAutoTable = document.createElement('script');
-        window.jsPDF = window.jspdf.jsPDF;
+        //window.jsPDF = window.jspdf.jsPDF;
         //jsPdfAutoTable.src = "https://unpkg.com/jspdf-autotable";
         //document.head.appendChild(jsPdfAutoTable);
-         var doc = new jsPDF();
+        // var doc = new jsPDF();
+        var pdf = new jsPDF('p', 'pt', 'letter');
         downloadButton.addEventListener('click', (event) => {
         
         //A4 - 595x842 pts
