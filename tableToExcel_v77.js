@@ -72,9 +72,10 @@ looker.plugins.visualizations.add({
     //downloadButton.className = 'download-button';   
     this._container.prepend(downloadButton);
     downloadButton.addEventListener('click', (event) => {
-          var dataType = 'data:application/vnd.ms-excel';
-          var tableSelect = document.getElementById('htmltable');
-          var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+          var downloadLink;
+          var dataType = 'application/vnd.ms-excel';
+          var tableContent = document.getElementById('htmltable');
+          var tableHTMLdata = tableContent[0];
             //, template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{Worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
             //, base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
             //, format = function (s, c) {
@@ -90,12 +91,24 @@ looker.plugins.visualizations.add({
          // Create a new style element and set the default styles
         
         var filename = "export.xlsx";
-        var downloadLink = document.createElement("a");
+        downloadLink = document.createElement("a");
         document.body.appendChild(downloadLink);
-        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-        downloadLink.download = filename;
-        downloadLink.click();
-        window.open(downloadLink.href);
+        if(navigator.msSaveOrOpenBlob){
+            var blob = new Blob(['\ufeff', tableHTMLdata], {
+               type: dataType
+            });
+            navigator.msSaveOrOpenBlob( blob, filename);
+         } else{
+            downloadLink.href = 'data:' + dataType + ', ' + tableHTMLdata;
+            downloadLink.download = filename;
+
+            //triggering the function
+            downloadLink.click();
+         }
+        //downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+        //downloadLink.download = filename;
+        //downloadLink.click();
+        //window.open(downloadLink.href);
       console.log(downloadLink.href);
       // table.style.type = 'text/css';
       // table.style.innerHTML = 'td, th { background-color: white; border: 1px solid black; font-weight: normal; font-size: 11pt; font-family: Calibri; mso-number-format: "\\\@"; }';
