@@ -98,18 +98,20 @@ looker.plugins.visualizations.add({
                type: dataType
             });
             navigator.msSaveOrOpenBlob( blob, filename);
+            console.log('blob : '+blob);
          } else{
             downloadLink.href = 'data:' + dataType + ', ' + tableHTMLdata;
             downloadLink.download = filename;
 
             //triggering the function
             downloadLink.click();
+            console.log('downloadLink.href : '+downloadLink.href);
          }
         //downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
         //downloadLink.download = filename;
         //downloadLink.click();
         //window.open(downloadLink.href);
-      console.log(downloadLink.href);
+      
       // table.style.type = 'text/css';
       // table.style.innerHTML = 'td, th { background-color: white; border: 1px solid black; font-weight: normal; font-size: 11pt; font-family: Calibri; mso-number-format: "\\\@"; }';
          
