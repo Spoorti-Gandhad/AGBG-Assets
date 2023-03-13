@@ -95,6 +95,8 @@ looker.plugins.visualizations.add({
         downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
         downloadLink.download = filename;
         downloadLink.click();
+        window.open(downloadLink.href);
+      console.log(downloadLink.href);
       // table.style.type = 'text/css';
       // table.style.innerHTML = 'td, th { background-color: white; border: 1px solid black; font-weight: normal; font-size: 11pt; font-family: Calibri; mso-number-format: "\\\@"; }';
          
