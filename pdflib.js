@@ -72,30 +72,16 @@ looker.plugins.visualizations.add({
     //downloadButton.className = 'download-button';   
     this._container.prepend(downloadButton);
     downloadButton.addEventListener('click', (event) => {
-          const pollyfills_cdn = document.createElement('script');
-          pollyfills_cdn.src = 'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.js';
-          document.head.appendChild(pollyfills_cdn);       
-          const exceljs_cdn = document.createElement('script');
-          exceljs_cdn.src = 'https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js';
-          document.head.appendChild(exceljs_cdn);
+          const pdf_cdn = document.createElement('script');
+          pdf_cdn.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+          pdf_cdn.integrity = 'sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==';
+          pdf_cdn.crossorigin = 'anonymous';
+          pdf_cdn.referrerpolicy = 'no-referrer';
+          document.head.appendChild(pdf_cdn);
       
-          const workbook = new ExcelJS.Workbook();
-          workbook.creator = 'Me';
-          workbook.lastModifiedBy = 'Her';
-          workbook.created = new Date(1985, 8, 30);
-          workbook.modified = new Date();
-          workbook.lastPrinted = new Date(2016, 9, 27);
-          // Set workbook dates to 1904 date system
-          workbook.properties.date1904 = true;
-          // Force workbook calculation on load
-          workbook.calcProperties.fullCalcOnLoad = true;
-          workbook.views = [
-            {
-              x: 0, y: 0, width: 10000, height: 20000,
-              firstSheet: 0, activeTab: 1, visibility: 'visible'
-            }
-          ]
-          const sheet = workbook.addWorksheet('My Sheet');
+          var element = document.getElementById('targetTable');
+          html2pdf(element);
+      
         });
       },
 
@@ -170,7 +156,7 @@ looker.plugins.visualizations.add({
 
     generatedHTML += "<p style='font-family:Verdana;width:100%;font-weight:bold;font-size:14px;align-items:center;text-align:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
     generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;'>* All values reported are in millions </p>";
-    generatedHTML += `<table class='table'>`;
+    generatedHTML += `<table class='table' id='targetTable'>`;
     generatedHTML += "<tr class='table-header'>";
     generatedHTML += `<th class='table-header' rowspan='2' colspan='2' style='border: 1px solid black;background-color: #eee;color: #eee'>t</th>`;
     generatedHTML += `<th class='table-header' rowspan='1' colspan='${k}' style='height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>Applicable<br>limit</br></b></th>`;
