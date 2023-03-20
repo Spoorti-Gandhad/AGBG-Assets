@@ -37,7 +37,7 @@ looker.plugins.visualizations.add({
             background-clip: padding-box;
           }
           .table-cell {
-            padding: 5px;
+            padding: 3px;
             border-bottom: 1px solid #ccc;
             border: 1px solid black;
             border-collapse: collapse;
@@ -154,13 +154,13 @@ looker.plugins.visualizations.add({
           background-clip: padding-box;
         }
         .table-cell {
-          padding: 5px;
+          padding: 3px;
           border-bottom: 1px solid #ccc;
           border: 1px solid black;
           border-collapse: collapse;
           font-weight: normal;
           font-family: 'Verdana';
-          font-size: 11pt;
+          font-size: 11pt !important;
           align-items: center;
           text-align: center;
           margin: auto;
