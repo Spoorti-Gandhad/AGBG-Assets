@@ -593,7 +593,7 @@ looker.plugins.visualizations.add({
           console.log("i found a frame on click : ----------"+frame);
           //console.log(window.document.body.querySelector("iframe")+"iframe in doc : -----"+document.documentElement.parentElement);
           console.log("iframe in doc body on click : -----"+document.body.parentElement);
-          console.log("iframe in doc body on click : -----"+window.parent.document.innerHTML);
+          //--console.log("iframe in doc body on click : -----"+window.parent.document.innerHTML);
           frame.sandbox='allow-downloads';
       
       
