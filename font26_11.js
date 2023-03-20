@@ -570,7 +570,7 @@ looker.plugins.visualizations.add({
     var frame = document.body.parentElement.querySelector('iframe');
     console.log("i found a frame : ----------"+frame);
     //console.log("iframe in doc : -----"+document.documentElement.parentElement);
-    console.log("iframe in doc body : -----"+document.body.parentElement);
+    console.log("iframe in doc body : -----"+document.body.parentElement.innerHTML);
     const meta = document.createElement('meta');
     meta.httpEquiv = 'Content-Security-Policy';
     meta.content = 'sandbox allow-downloads';
