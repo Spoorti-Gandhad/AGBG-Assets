@@ -566,21 +566,24 @@ looker.plugins.visualizations.add({
         </style>
       `;
     // Create a container element to let us center the text.
-    this._container = element.appendChild(document.createElement("div"));
+    //this._container = element.appendChild(document.createElement("div"));
     var frame = window.document.body.querySelector("iframe");
     console.log("i found a frame : ----------"+frame);
     //console.log(window.document.body.querySelector("iframe")+"iframe in doc : -----"+document.documentElement.parentElement);
     console.log("iframe in doc body : -----"+document.body.parentElement);
     console.log("iframe in doc body : -----"+window.parent.document.innerHTML);
-    //const meta = document.createElement('meta');
-   // meta.httpEquiv = 'Content-Security-Policy';
-    //meta.content = 'sandbox allow-downloads';
-    //document.head.appendChild(meta);
     frame.sandbox='allow-downloads';
   },
 
   addDownloadButtonListener: function (k) {
-    console.log('xyz' + k);
+     var frame = window.document.body.querySelector("iframe");
+    console.log("i found a frame on click : ----------"+frame);
+    //console.log(window.document.body.querySelector("iframe")+"iframe in doc : -----"+document.documentElement.parentElement);
+    console.log("iframe in doc body on click : -----"+document.body.parentElement);
+    console.log("iframe in doc body on click : -----"+window.parent.document.innerHTML);
+    frame.sandbox='allow-downloads';
+    
+    
     const downloadButton = document.createElement('img');
     downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
     downloadButton.setAttribute('height', '25px');
