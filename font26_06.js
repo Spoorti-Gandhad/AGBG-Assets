@@ -101,18 +101,28 @@ looker.plugins.visualizations.add({
 
         
           const XLSX = document.createElement('script');
-          XLSX.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
+          XLSX.src = 'https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/tableToExcel.js';//'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
           document.head.appendChild(XLSX);
-          //table.prepend("<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10pt;align-items: center;text-align: left;padding: 5px;'>* All values reported are in millions </th></tr>");
-          //var ctx = { Worksheet: '26', table: table.innerHTML }
-          var ctx = { Worksheet: '26', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:11pt;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr><font size='11pt !important'>"+table.innerHTML+"</font>"}
-          var xl = format(template, ctx);
-          const downloadUrl = uri + base64(xl);
-          console.log(table.innerHTML); // Prints the download URL to the console
-          //sleep(1000);
-          //window.open(downloadUrl);
-          window.open(downloadUrl, "_blank");
-          //setTimeout(window.open(downloadUrl, 'Download'),1000);
+      
+          TableToExcel.convert(table, {
+            name: "table1.xlsx",
+            sheet: {
+              name: "Sheet 1"
+            }
+          });
+      
+      
+      
+          ////table.prepend("<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10pt;align-items: center;text-align: left;padding: 5px;'>* All values reported are in millions </th></tr>");
+          ////var ctx = { Worksheet: '26', table: table.innerHTML }
+          //var ctx = { Worksheet: '26', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:11pt;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr><font size='11pt !important'>"+table.innerHTML+"</font>"}
+          //var xl = format(template, ctx);
+          //const downloadUrl = uri + base64(xl);
+          //console.log(table.innerHTML); // Prints the download URL to the console
+          ////sleep(1000);
+          ////window.open(downloadUrl);
+          //window.open(downloadUrl, "_blank");
+          ////setTimeout(window.open(downloadUrl, 'Download'),1000);
         });
       },
 
