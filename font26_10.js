@@ -567,9 +567,9 @@ looker.plugins.visualizations.add({
       `;
     // Create a container element to let us center the text.
     this._container = element.appendChild(document.createElement("div"));
-    var frame = document.querySelector('iframe');
+    var frame = document.body.parentElement.querySelector('iframe');
     console.log("i found a frame : ----------"+frame);
-    console.log("iframe in doc : -----"+document.documentElement.parentElement);
+    //console.log("iframe in doc : -----"+document.documentElement.parentElement);
     console.log("iframe in doc body : -----"+document.body.parentElement);
     const meta = document.createElement('meta');
     meta.httpEquiv = 'Content-Security-Policy';
