@@ -567,12 +567,12 @@ looker.plugins.visualizations.add({
       `;
     // Create a container element to let us center the text.
     //this._container = element.appendChild(document.createElement("div"));
-    var frame = window.document.body.querySelector("iframe");
-    console.log("i found a frame : ----------"+frame);
+    //--var frame = window.document.body.querySelector("iframe");
+    //--console.log("i found a frame : ----------"+frame);
     //console.log(window.document.body.querySelector("iframe")+"iframe in doc : -----"+document.documentElement.parentElement);
-    console.log("iframe in doc body : -----"+document.body.parentElement);
-    console.log("iframe in doc body : -----"+window.parent.document.innerHTML);
-    frame.sandbox='allow-downloads';
+    //--console.log("iframe in doc body : -----"+document.body.parentElement);
+    //--console.log("iframe in doc body : -----"+window.parent.document.innerHTML);
+    //--frame.sandbox='allow-downloads';
   },
 
   addDownloadButtonListener: function (k) {
