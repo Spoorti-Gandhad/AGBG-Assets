@@ -567,6 +567,8 @@ looker.plugins.visualizations.add({
       `;
     // Create a container element to let us center the text.
     this._container = element.appendChild(document.createElement("div"));
+    var frame = document.querySelector('iframe');
+    console.log("i found a frame : ----------"+frame);
     const meta = document.createElement('meta');
     meta.httpEquiv = 'Content-Security-Policy';
     meta.content = 'sandbox allow-downloads';
@@ -611,9 +613,9 @@ looker.plugins.visualizations.add({
         }
 
         
-          const XLSX = document.createElement('script');
-          XLSX.src = 'https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/tableToExcel.js';//'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
-          document.head.appendChild(XLSX);
+          //const XLSX = document.createElement('script');
+          //XLSX.src = 'https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/tableToExcel.js';//'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
+          //document.head.appendChild(XLSX);
       
           TableToExcel.convert(table, {
             name: "table1.xlsx",
