@@ -18,7 +18,7 @@ looker.plugins.visualizations.add({
     element.innerHTML = `
         <style>
           .table {
-            font-size: ${config.font_size}px;
+            font-size: 11pt !important;//${config.font_size}px;
             border: 1px solid black;
             border-collapse: collapse;
             margin:auto;
