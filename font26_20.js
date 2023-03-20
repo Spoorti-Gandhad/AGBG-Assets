@@ -589,12 +589,12 @@ looker.plugins.visualizations.add({
     this._container.prepend(downloadButton);
     downloadButton.addEventListener('click', (event) => {
       
-           var frame = window.document.body.querySelector("iframe");
-          console.log("i found a frame on click : ----------"+frame);
+           //--var frame = window.document.body.querySelector("iframe");
+          //--console.log("i found a frame on click : ----------"+frame);
           //console.log(window.document.body.querySelector("iframe")+"iframe in doc : -----"+document.documentElement.parentElement);
-          console.log("iframe in doc body on click : -----"+document.body.parentElement);
+          //--console.log("iframe in doc body on click : -----"+document.body.parentElement);
           //--console.log("iframe in doc body on click : -----"+window.parent.document.innerHTML);
-          frame.sandbox='allow-downloads';
+         //-- frame.sandbox='allow-downloads';
       
       
           var uri = 'data:application/vnd.ms-excel;base64,'
