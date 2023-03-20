@@ -576,12 +576,7 @@ looker.plugins.visualizations.add({
   },
 
   addDownloadButtonListener: function (k) {
-     var frame = window.document.body.querySelector("iframe");
-    console.log("i found a frame on click : ----------"+frame);
-    //console.log(window.document.body.querySelector("iframe")+"iframe in doc : -----"+document.documentElement.parentElement);
-    console.log("iframe in doc body on click : -----"+document.body.parentElement);
-    console.log("iframe in doc body on click : -----"+window.parent.document.innerHTML);
-    frame.sandbox='allow-downloads';
+    
     
     
     const downloadButton = document.createElement('img');
@@ -593,6 +588,15 @@ looker.plugins.visualizations.add({
     //downloadButton.className = 'download-button';   
     this._container.prepend(downloadButton);
     downloadButton.addEventListener('click', (event) => {
+      
+           var frame = window.document.body.querySelector("iframe");
+          console.log("i found a frame on click : ----------"+frame);
+          //console.log(window.document.body.querySelector("iframe")+"iframe in doc : -----"+document.documentElement.parentElement);
+          console.log("iframe in doc body on click : -----"+document.body.parentElement);
+          console.log("iframe in doc body on click : -----"+window.parent.document.innerHTML);
+          frame.sandbox='allow-downloads';
+      
+      
           var uri = 'data:application/vnd.ms-excel;base64,'
             , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{Worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
             , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
