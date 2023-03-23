@@ -144,7 +144,7 @@ looker.plugins.visualizations.add({
 		var data26 = {};
 		var data27 = {};
 		if(colName=="r010" || colName=="r020" || colName=="r030" || colName=="r040_26"){
-			data26.push();
+			//data26.push();
 		}
         for (row of data) {
 		  //console.log("row : ---------- "+row[field.name]);
