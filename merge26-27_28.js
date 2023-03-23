@@ -134,7 +134,7 @@
 			for(let key in subdata){
 				var keyValue = key.split(".")[1];
 				for(let i in subdata[key]){
-					console.log("........................."+subdata[key][i]);
+					//console.log("........................."+subdata[key][i]);
 				
 					if(keyValue != null && subdata[key][i] != -1){
 						if(keyValue==="r010" || keyValue==="r020" || keyValue==="r030" || keyValue==="r040_26"){
