@@ -156,7 +156,7 @@
 			
 			// Next columns are the data
 			for (row of data26) {
-			  console.log("row : ---------- "+row[field.name]);
+			  console.log("row : -----26----- "+row[field.name]);
 			  if(row[field.name]!== null ){
 				  generatedHTML += `<td class='table-cell'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
 			  }
@@ -243,7 +243,7 @@
 	   
 		
 		for (row of data27) {
-		  console.log("row : ---------- "+row[field.name]);
+		  console.log("row : ----27------ "+row[field.name]);
 		  generatedHTML27 += "<tr class='table-row'>";
 		  for (field of queryResponse.fields.dimensions.concat(queryResponse.fields.measures)) {
 			generatedHTML27 += `<td class='table-cell' style='border: 1px solid black;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`;
