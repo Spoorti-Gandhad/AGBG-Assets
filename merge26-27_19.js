@@ -140,10 +140,10 @@ looker.plugins.visualizations.add({
 			var keyValue = key.split(".")[1];
 			if(keyValue != null){
 				if(keyValue=="r010" || keyValue=="r020" || keyValue=="r030" || keyValue=="r040_26"){
-					data26.push(subdata);
+					data26[key]=subdata;
 				}
 				if(keyValue!="r010" || keyValue!="r020" || keyValue!="r030" || keyValue!="r040_26"){
-					data27.push(subdata);
+					data27[key]=subdata;
 				}
 			}
 			for(let i in subdata[key]){
