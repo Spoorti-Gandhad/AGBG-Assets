@@ -138,7 +138,7 @@ looker.plugins.visualizations.add({
         generatedHTML += `<th class='table-header' style='text-align: left; padding: 5px;width:280px'>${header[i]}</th>`;
         
         // Next columns are the data
-        console.log(data);
+       	console.log(row);
         for (row of data) {
           if(row[field.name]!== null ){
           generatedHTML += `<td class='table-cell'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
