@@ -135,7 +135,7 @@
 				var keyValue = key.split(".")[1];
 				for(let i in subdata[key]){	
 					
-					if(keyValue != null && subdata[key][i] != -1){
+					if(keyValue != null){// && subdata[key][i] != -1){
 						if(keyValue==="r010" || keyValue==="r020" || keyValue==="r030" || keyValue==="r040_26"){
 							data26.push(subdata);
 							console.log(keyValue+"subdata[key]---26------- : "+subdata[key][i]);
