@@ -133,7 +133,9 @@ looker.plugins.visualizations.add({
 
       // Look through each field (i.e. row of data)
 	  for(subdata of data){
-		console.log("dataa........."+subdata);
+		for(rowdata of subdata){
+			console.log("dataa........."+rowdata);
+		}
 	  }
 	  
       for (field of queryResponse.fields[column_type]) {
