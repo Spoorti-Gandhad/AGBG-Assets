@@ -13,7 +13,7 @@
 	  },
 	  // Set up the initial state of the visualization
 	  create: function (element, config) {
-		console.log(config);
+		//console.log(config);
 		// Insert a <style> tag with some styles we'll use later.
 		element.innerHTML = `
 		  <style>
@@ -55,7 +55,7 @@
 	  },
 	  // Render in response to the data or settings changing
 	  updateAsync: function (data, element, config, queryResponse, details, done) {
-		console.log(config);
+		//console.log(config);
 		// Clear any errors from previous updates
 		this.clearErrors();
 
@@ -133,17 +133,13 @@
 		  for(subdata of data){
 			for(let key in subdata){
 				var keyValue = key.split(".")[1];
-				for(let i in subdata[key]){
-					//console.log("........................."+subdata[key][i]);
-				
+				for(let i in subdata[key]){				
 					if(keyValue != null && subdata[key][i] != -1){
 						if(keyValue==="r010" || keyValue==="r020" || keyValue==="r030" || keyValue==="r040_26"){
 							data26.push(subdata);
 							break;
-							//console.log(keyValue+"----------26 sb data key value ---------"+subdata[key]);
 						}else if(keyValue==="r011" || keyValue==="r015" || keyValue==="r021" || keyValue==="r035" || keyValue==="r040" || keyValue==="r050" || keyValue==="r060" || keyValue==="r070"){
 							data27.push(subdata);
-							//console.log(keyValue+"----------27 sb data key value ---------"+subdata[key]);
 							break;
 						}
 					}
@@ -247,7 +243,7 @@
 	   
 		
 		for (row of data27) {
-		  
+		  console.log("row : ---------- "+row[field.name]);
 		  generatedHTML27 += "<tr class='table-row'>";
 		  for (field of queryResponse.fields.dimensions.concat(queryResponse.fields.measures)) {
 			generatedHTML27 += `<td class='table-cell' style='border: 1px solid black;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`;
