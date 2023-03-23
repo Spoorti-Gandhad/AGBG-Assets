@@ -56,10 +56,6 @@ looker.plugins.visualizations.add({
   // Render in response to the data or settings changing
   updateAsync: function (data, element, config, queryResponse, details, done) {
     console.log(config);
-    this.data = data;
-    this.qresp = queryResponse;
-   // console.log("zvxcxc data ;" + data);
-    //console.log("qqqqqqq queryresponse ;" + queryResponse);
     // Clear any errors from previous updates
     this.clearErrors();
 
@@ -136,18 +132,14 @@ looker.plugins.visualizations.add({
       // Look through each field (i.e. row of data)
 	  for(subdata of data){
 		for(let key in subdata){
-			console.log("key .... "+key.split(".")[1]);
 			var keyValue = key.split(".")[1];
 			if(keyValue != null){
 				if(keyValue=="r010" || keyValue=="r020" || keyValue=="r030" || keyValue=="r040_26"){
 					data26.push(subdata);
-				}
-				if(keyValue!="r010" || keyValue!="r020" || keyValue!="r030" || keyValue!="r040_26"){
+					console.log(keyValue+"----------sb data key value ---------"+subdata[key]);
+				}else{
 					data27.push(subdata);
 				}
-			}
-			for(let i in subdata[key]){
-				console.log(i+"....dataa........."+subdata[key][i]);
 			}
 		}
 	  }
