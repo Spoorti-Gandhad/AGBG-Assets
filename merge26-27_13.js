@@ -132,7 +132,10 @@ looker.plugins.visualizations.add({
     for (column_type of ["dimension_like", "measure_like", "table_calculations"]) {
 
       // Look through each field (i.e. row of data)
-	  console.log("dataa........."+data);
+	  for(subdata of data){
+		console.log("dataa........."+subdata);
+	  }
+	  
       for (field of queryResponse.fields[column_type]) {
         // First column is the label
         generatedHTML += `<tr><th class='table-header'>${header1[i]}</th>`;
