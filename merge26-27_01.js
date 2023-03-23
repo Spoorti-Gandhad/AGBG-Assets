@@ -141,7 +141,7 @@ looker.plugins.visualizations.add({
      
         for (row of data) {
           if(row[field.name]!== null ){
-           console.log("row field name : "+row[field.name])
+           console.log("row field name : "+${LookerCharts.Utils.htmlForCell(row[field.name])})
           generatedHTML += `<td class='table-cell'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
           }
         }
