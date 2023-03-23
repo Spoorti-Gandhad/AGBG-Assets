@@ -129,8 +129,8 @@ looker.plugins.visualizations.add({
     // Loop through the different types of column types looker exposes
     let i = 0,k=0;
     const header1=['010','020','030','040'];
-	var data26 = {};
-	var data27 = {};
+	var data26 = [];
+	var data27 = [];
     for (column_type of ["dimension_like", "measure_like", "table_calculations"]) {
 		
       // Look through each field (i.e. row of data)
@@ -140,10 +140,10 @@ looker.plugins.visualizations.add({
 			var keyValue = key.split(".")[1];
 			if(keyValue != null){
 				if(keyValue=="r010" || keyValue=="r020" || keyValue=="r030" || keyValue=="r040_26"){
-					data26[key]=subdata;
+					data26.push(subdata);
 				}
 				if(keyValue!="r010" || keyValue!="r020" || keyValue!="r030" || keyValue!="r040_26"){
-					data27[key]=subdata;
+					data27.push(subdata);
 				}
 			}
 			for(let i in subdata[key]){
