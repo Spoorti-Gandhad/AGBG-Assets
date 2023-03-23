@@ -138,7 +138,7 @@ looker.plugins.visualizations.add({
         generatedHTML += `<th class='table-header' style='text-align: left; padding: 5px;width:280px'>${header[i]}</th>`;
         
         // Next columns are the data
-       	console.log(field.name.split[0]+"field : ---------- "+field.name.split[1]);
+       	console.log(field.name.split(".")[0]+"field : ---------- "+field.name.split(".")[1]);
         for (row of data) {
 		  //console.log("row : ---------- "+row[field.name]);
           if(row[field.name]!== null ){
