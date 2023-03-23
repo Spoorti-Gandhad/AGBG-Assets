@@ -135,15 +135,19 @@
 				var keyValue = key.split(".")[1];
 				for(let i in subdata[key]){
 					console.log("........................."+subdata[key][i]);
-				}
-				if(keyValue != null){
-					if(keyValue==="r010" || keyValue==="r020" || keyValue==="r030" || keyValue==="r040_26"){
-						data26.push(subdata);
-						//console.log(keyValue+"----------26 sb data key value ---------"+subdata[key]);
-					}else if(keyValue==="r011" || keyValue==="r015" || keyValue==="r021" || keyValue==="r035" || keyValue==="r040" || keyValue==="r050" || keyValue==="r060" || keyValue==="r070"){
-						data27.push(subdata);
-						//console.log(keyValue+"----------27 sb data key value ---------"+subdata[key]);
+				
+					if(keyValue != null && subdata[key][i] != -1){
+						if(keyValue==="r010" || keyValue==="r020" || keyValue==="r030" || keyValue==="r040_26"){
+							data26.push(subdata);
+							break;
+							//console.log(keyValue+"----------26 sb data key value ---------"+subdata[key]);
+						}else if(keyValue==="r011" || keyValue==="r015" || keyValue==="r021" || keyValue==="r035" || keyValue==="r040" || keyValue==="r050" || keyValue==="r060" || keyValue==="r070"){
+							data27.push(subdata);
+							//console.log(keyValue+"----------27 sb data key value ---------"+subdata[key]);
+							break;
+						}
 					}
+					break;
 				}
 			}
 		  }
