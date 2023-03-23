@@ -132,17 +132,24 @@ looker.plugins.visualizations.add({
     for (column_type of ["dimension_like", "measure_like", "table_calculations"]) {
 
       // Look through each field (i.e. row of data)
+	  console.log("dataa........."+data);
       for (field of queryResponse.fields[column_type]) {
         // First column is the label
         generatedHTML += `<tr><th class='table-header'>${header1[i]}</th>`;
         generatedHTML += `<th class='table-header' style='text-align: left; padding: 5px;width:280px'>${header[i]}</th>`;
         
         // Next columns are the data
-       	console.log(field.name.split(".")[0]+"field : ---------- "+field.name.split(".")[1]);
+       	//console.log(field.name.split(".")[0]+"field : ---------- "+field.name.split(".")[1]);
+		var colName = field.name.split(".")[1];
+		var data26 = {};
+		var data27 = {};
+		if(colName=="r010" || colName=="r020" || colName=="r030" || colName=="r040_26"){
+			data26.push();
+		}
         for (row of data) {
 		  //console.log("row : ---------- "+row[field.name]);
           if(row[field.name]!== null ){
-          generatedHTML += `<td class='table-cell'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
+              generatedHTML += `<td class='table-cell'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
           }
         }
         generatedHTML += '</tr>';
