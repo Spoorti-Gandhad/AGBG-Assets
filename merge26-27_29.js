@@ -256,6 +256,7 @@
 	 
 		 
 		generatedHTML27 += "</table>"; 
+		this._container.innerHTML = generatedHTML+generatedHTML27;
 		done();
 	  }
 	});
