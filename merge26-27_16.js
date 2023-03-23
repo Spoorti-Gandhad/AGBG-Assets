@@ -134,7 +134,9 @@ looker.plugins.visualizations.add({
       // Look through each field (i.e. row of data)
 	  for(subdata of data){
 		for(let key in subdata){
-			console.log("dataa........."+subdata[key]);
+			for(let i in subdata[key]){
+				console.log("dataa........."+subdata[key][i]);
+			}
 		}
 	  }
 	  
