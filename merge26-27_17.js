@@ -129,12 +129,23 @@ looker.plugins.visualizations.add({
     // Loop through the different types of column types looker exposes
     let i = 0,k=0;
     const header1=['010','020','030','040'];
+	var data26 = {};
+	var data27 = {};
     for (column_type of ["dimension_like", "measure_like", "table_calculations"]) {
-
+		
       // Look through each field (i.e. row of data)
 	  for(subdata of data){
 		for(let key in subdata){
-			console.log("key .... "+key);
+			console.log("key .... "+key.split(".")[1]);
+			var keyValue = key.split(".")[1];
+			if(keyValue != null){
+				if(keyValue=="r010" || keyValue=="r020" || keyValue=="r030" || keyValue=="r040_26"){
+					data26.push(subdata);
+				}
+				if(keyValue!="r010" || keyValue!="r020" || keyValue!="r030" || keyValue!="r040_26"){
+					data27.push(subdata);
+				}
+			}
 			for(let i in subdata[key]){
 				console.log(i+"....dataa........."+subdata[key][i]);
 			}
@@ -147,14 +158,7 @@ looker.plugins.visualizations.add({
         generatedHTML += `<th class='table-header' style='text-align: left; padding: 5px;width:280px'>${header[i]}</th>`;
         
         // Next columns are the data
-       	//console.log(field.name.split(".")[0]+"field : ---------- "+field.name.split(".")[1]);
-		var colName = field.name.split(".")[1];
-		var data26 = {};
-		var data27 = {};
-		if(colName=="r010" || colName=="r020" || colName=="r030" || colName=="r040_26"){
-			//data26.push();
-		}
-        for (row of data) {
+        for (row of data26) {
 		  //console.log("row : ---------- "+row[field.name]);
           if(row[field.name]!== null ){
               generatedHTML += `<td class='table-cell'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
@@ -241,7 +245,7 @@ looker.plugins.visualizations.add({
 
    
     
-    for (row of data) {
+    for (row of data27) {
       
       generatedHTML27 += "<tr class='table-row'>";
       for (field of queryResponse.fields.dimensions.concat(queryResponse.fields.measures)) {
