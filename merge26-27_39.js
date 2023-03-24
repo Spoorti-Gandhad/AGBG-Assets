@@ -243,7 +243,7 @@
 		}
 		generatedHTML27 += "</tr>";
 		generatedHTML27 += "</thead>";
-		consolee.log("-----data27---------"+data27)
+		console.log("-----data27---------"+data27)
 		for (row of data27) {
 		  console.log("row : ----27------ "+row[field.name]);
 		  generatedHTML27 += "<tr class='table-row'>";
