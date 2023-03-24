@@ -139,11 +139,11 @@
 					if(keyValue != null && subdata[key][i] != -1){
 						if(keyValue=="r010" || keyValue=="r020" || keyValue=="r030" || keyValue=="r040_26"){
 							data26.push(subdata);
-							console.log(keyValue+"subdata[key]---26------- : "+subdata[key][i]);
+							//console.log(keyValue+"subdata[key]---26------- : "+subdata[key][i]);
 							break;
 						}else if(keyValue==="r011" || keyValue==="r015" || keyValue==="r021" || keyValue==="r035" || keyValue==="r040" || keyValue==="r050" || keyValue==="r060" || keyValue==="r070"){
 							data27.push(subdata);
-							console.log(keyValue+"subdata[key]-----27----- : "+subdata[key][i]);
+							//console.log(keyValue+"subdata[key]-----27----- : "+subdata[key][i]);
 							break;
 						}
 					}
@@ -160,7 +160,7 @@
 			
 			// Next columns are the data
 			for (row of data26) {
-			  console.log("row : -----26----- "+row[field.name]);
+			  //console.log("row : -----26----- "+row[field.name]);
 			  if(row[field.name]!== null ){
 				  generatedHTML += `<td class='table-cell'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
 			  }
