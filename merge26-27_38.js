@@ -137,11 +137,11 @@
 				for(let i in subdata[key]){	
 					
 					if(keyValue != null && subdata[key][i] != -1){
-						if(keyValue=="R010" || keyValue=="R020" || keyValue=="R030" || keyValue=="Table26_R40"){
+						if(keyValue=="r010" || keyValue=="r020" || keyValue=="r030" || keyValue=="r040_26"){
 							data26.push(subdata);
 							console.log(keyValue+"subdata[key]---26------- : "+subdata[key][i]);
 							break;
-						}else if(keyValue==="R011" || keyValue==="R015" || keyValue==="R021" || keyValue==="R035" || keyValue==="Table27_R040" || keyValue==="R050" || keyValue==="R060" || keyValue==="R070"){
+						}else if(keyValue==="r011" || keyValue==="r015" || keyValue==="r021" || keyValue==="r035" || keyValue==="r040" || keyValue==="r050" || keyValue==="r060" || keyValue==="r070"){
 							data27.push(subdata);
 							console.log(keyValue+"subdata[key]-----27----- : "+subdata[key][i]);
 							break;
@@ -243,9 +243,7 @@
 		}
 		generatedHTML27 += "</tr>";
 		generatedHTML27 += "</thead>";
-
-	   
-		
+		consolee.log("-----data27---------"+data27)
 		for (row of data27) {
 		  console.log("row : ----27------ "+row[field.name]);
 		  generatedHTML27 += "<tr class='table-row'>";
@@ -253,9 +251,8 @@
 			generatedHTML27 += `<td class='table-cell' style='border: 1px solid black;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`;
 		  }
 		  generatedHTML27 += "</tr>";
-		} 
+		}
 	 
-		 
 		generatedHTML27 += "</table>"; 
 		this._container.innerHTML = generatedHTML+generatedHTML27;
 		done();
