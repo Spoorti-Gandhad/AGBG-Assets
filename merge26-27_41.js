@@ -133,7 +133,7 @@
 		  for(subdata of data){
 			for(let key in subdata){
 				var keyValue = key.split(".")[1];
-				console.log("------------keyValue-------- "+keyValue);
+				console.log(key+"------------keyValue-------- "+keyValue);
 				for(let i in subdata[key]){	
 					
 					if(keyValue != null && subdata[key][i] != -1){
