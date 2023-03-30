@@ -130,6 +130,7 @@
 		for (column_type of ["dimension_like", "measure_like", "table_calculations"]) {
 			
 		  // Look through each field (i.e. row of data)
+		 console.log("json strigify : "+ JSON.stringify(data));
 		  for(subdata of data){
 			for(let key in subdata){
 				var keyValue = key.split(".")[1];
@@ -244,7 +245,7 @@
 		}
 		generatedHTML27 += "</tr>";
 		generatedHTML27 += "</thead>";
-		console.log("-----data27---------"+data27)
+		//console.log("-----data27---------"+data27)
 		for (row of data27) {
 		  console.log("row : ----27------ "+row[field.name]);
 		  generatedHTML27 += "<tr class='table-row'>";
