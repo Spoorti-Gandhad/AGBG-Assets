@@ -130,28 +130,9 @@
 		for (column_type of ["dimension_like", "measure_like", "table_calculations"]) {
 			
 		  // Look through each field (i.e. row of data)
-		 console.log("json strigify : "+ JSON.stringify(data));
-		  for(subdata of data){
-			for(let key in subdata){
-				var keyValue = key.split(".")[1];
-				//console.log(key+"------------keyValue-------- "+keyValue);
-				//subdata[key].forEach(function(val){console.log("-val -------"+val)})
-				for(let i in subdata[key]){	
-					
-					if(keyValue != null && subdata[key][i] != -1){
-						if(keyValue=="r010" || keyValue=="r020" || keyValue=="r030" || keyValue=="r040_26"){
-							data26.push(subdata);
-							//console.log(keyValue+"subdata[key]---26------- : "+subdata[key][i]);
-							break;
-						}else if(keyValue==="r011" || keyValue==="r015" || keyValue==="r021" || keyValue==="r035" || keyValue==="r040" || keyValue==="r050" || keyValue==="r060" || keyValue==="r070"){
-							data27.push(subdata);
-							//console.log(keyValue+"subdata[key]-----27----- : "+subdata[key][i]);
-							break;
-						}
-					}
-					break;
-				}
-				break;
+		  for(let item in data){
+			for(let key in item){
+				console.log(key+"--key------"+item[key]);
 			}
 		  }
 		  
@@ -245,7 +226,7 @@
 		}
 		generatedHTML27 += "</tr>";
 		generatedHTML27 += "</thead>";
-		//console.log("-----data27---------"+data27)
+		console.log("-----data27---------"+data27)
 		for (row of data27) {
 		  console.log("row : ----27------ "+row[field.name]);
 		  generatedHTML27 += "<tr class='table-row'>";
