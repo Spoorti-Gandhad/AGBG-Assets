@@ -140,6 +140,7 @@
 				  }else if(colVal==="r011" || colVal==="r015" || colVal==="r021" || colVal==="r035" || colVal==="r040" || colVal==="r050" || colVal==="r060" || colVal==="r070"){
 					data27.push(data[item]);
 				}
+				  break;
 			  }
 		  }
 		  
