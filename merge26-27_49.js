@@ -131,7 +131,7 @@
 			
 		  // Look through each field (i.e. row of data)
 		  for(let item in data){
-			console.log("----------item  : "+data[item]);
+			console.log("----------item  : "+JSON.stringify(data[item]));
 		  }
 		  
 		  for (field of queryResponse.fields[column_type]) {
