@@ -131,9 +131,7 @@
 			
 		  // Look through each field (i.e. row of data)
 		  for(let item in data){
-			for(let key in item){
-				console.log(key+"--key------"+item[key]);
-			}
+			console.log("----------item  : "+item);
 		  }
 		  
 		  for (field of queryResponse.fields[column_type]) {
