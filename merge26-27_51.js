@@ -134,6 +134,12 @@
 			//console.log("----------item  : "+JSON.stringify(data[item]));
 			  for(var key in data[item]){
 			  	console.log(key+"--- key ---- value ---- "+data[item][key]);
+				 var colVal = key.split(".")[1];
+				  if(keyValue==="r010" || keyValue==="r020" || keyValue==="r030" || keyValue==="r040_26"){
+					data26.push(data[item]);
+				  }else if(keyValue==="r011" || keyValue==="r015" || keyValue==="r021" || keyValue==="r035" || keyValue==="r040" || keyValue==="r050" || keyValue==="r060" || keyValue==="r070"){
+					data27.push(data[item]);
+				}
 			  }
 		  }
 		  
