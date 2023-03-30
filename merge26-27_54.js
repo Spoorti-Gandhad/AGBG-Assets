@@ -134,13 +134,13 @@
 			//console.log("----------item  : "+JSON.stringify(data[item]));
 			  for(var key in data[item]){
 			  	console.log(key+"--- key ---- value ---- "+data[item][key]);
-				 var colVal = key.split(".")[1];
-				  if(colVal==="r010" || colVal==="r020" || colVal==="r030" || colVal==="r040_26"){
-					data26.push(data[item]);
-				  }else if(colVal==="r011" || colVal==="r015" || colVal==="r021" || colVal==="r035" || colVal==="r040" || colVal==="r050" || colVal==="r060" || colVal==="r070"){
-					data27.push(data[item]);
-				}
-				  break;
+				 //var colVal = key.split(".")[1];
+				  //if(colVal==="r010" || colVal==="r020" || colVal==="r030" || colVal==="r040_26"){
+				//	data26.push(data[item]);
+				  //}else if(colVal==="r011" || colVal==="r015" || colVal==="r021" || colVal==="r035" || colVal==="r040" || colVal==="r050" || colVal==="r060" || colVal==="r070"){
+				//	data27.push(data[item]);
+				//}
+				  //break;
 			  }
 		  }
 		  
