@@ -107,11 +107,7 @@ looker.plugins.visualizations.add({
       this._container.prepend(downloadButton);
       downloadButton.addEventListener('click', () => { 
   
-        var htmlTable = "<tr class='table-header'>
-                        <th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: verdana;'>
-                            <b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr>
-                        <tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th>
-                        </tr>"+document.querySelector('table');
+        var htmlTable = document.querySelector('table');
           
         // htmlTable.style.border = '1px solid black';
         // htmlTable.style.fontSize = '11px';
@@ -160,7 +156,11 @@ looker.plugins.visualizations.add({
           var type = "xlsx";
           // var ctx = { Worksheet: 'C26', table: htmlTable.in };
           // var ctx = { Worksheet: 'C26', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>" + htmlTable.innerHTML };
-          var data = htmlTable;
+          var tableData =  "<tr class='table-header'>
+                        <th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: verdana;'>
+                            <b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr>
+                        <tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th>
+                        </tr>"+htmlTable;
           // var telement = document.createElement('div');
           // telement.innerHTML = htmlTable;
           // document.body.appendChild(telement);
@@ -190,7 +190,7 @@ looker.plugins.visualizations.add({
           // var tabledata = [
           //   {v: data, t: "s", s: {font: {name: "Verdana", sz: 11}}}
           // ];
-          var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A4'});
+          var wsheet = XLSX.utils.table_to_sheet(tableData, {origin: 'A4'});
           wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:10, r:0}}, {s:{c:0, r:1}, e:{c:10, r:1}}, {s:{c:0, r:3}, e:{c:1, r:4}}, {s:{c:2, r:3}, e:{c:(k+1), r:3}}, {s:{c:2, r:4}, e:{c:(k+1), r:4}}];
           // var wsheet = XLSX.utils.aoa_to_sheet([tabledata], {origin: 'A3'});
           // const max_width = data.reduce((w, r) => Math.max(w, r.name.length), 10);
