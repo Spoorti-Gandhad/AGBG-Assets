@@ -109,14 +109,29 @@ looker.plugins.visualizations.add({
                                                                             border: {bottom: {style: "medium"}}
                                                                         }}
           ];
-          const note = [
-            {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}}
-          ];
+          var note = [{v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}}];
           tdata.style.border = "1px solid";
           var wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
-          wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:10, r:0}}, {s:{c:0, r:1}, e:{c:10, r:1}}, {s:{c:0, r:3}, e:{c:1, r:4}}, {s:{c:2, r:3}, e:{c:(k+1), r:3}}, {s:{c:2, r:4}, e:{c:(k+1), r:4}}];
+           wsheet.A1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"};
+            wsheet.B1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"};
+            wsheet.C1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"};
+            wsheet.D1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"};
+            wsheet.E1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"};
+            wsheet.F1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"};
+            wsheet.G1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"};
+            wsheet.H1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"};
+            wsheet["A1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["B1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["C1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["D1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["E1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["F1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["G1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["H1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["!merges"] = [XLSX.utils.decode_range("A1:H1"), XLSX.utils.decode_range("A2:H2"), XLSX.utils.decode_range("A4:H4")];
+          //wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:10, r:0}}, {s:{c:0, r:1}, e:{c:10, r:1}}, {s:{c:0, r:3}, e:{c:1, r:4}}, {s:{c:2, r:3}, e:{c:(k+1), r:3}}, {s:{c:2, r:4}, e:{c:(k+1), r:4}}];
          
-          XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
+         // XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
           XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
          
           var wbook = XLSX.utils.book_new();
