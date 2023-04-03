@@ -108,22 +108,30 @@ looker.plugins.visualizations.add({
           const note = [
             {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}}
           ];
-          var wsheet = XLSX.utils.table_to_sheet(tableData, {origin: 'A4'});
+          var wsheet = XLSX.utils.table_to_sheet(tableData);
           wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:10, r:0}}, {s:{c:0, r:1}, e:{c:10, r:1}}, {s:{c:0, r:3}, e:{c:1, r:4}}, {s:{c:2, r:3}, e:{c:(k+1), r:3}}, {s:{c:2, r:4}, e:{c:(k+1), r:4}}];
          
           var wbook = XLSX.utils.book_new();
           XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
           var wbexport = XLSX.write(wbook, {
-              bookType: type,
+              bookType: 'xlsx',
               bookSST: true,
               type: 'binary',
               cellStyles: true
           }); 
-  
-          var link = document.createElement("a"); 
-          link.download = "target26.xlsx";
-          link.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + btoa(wbexport);
-          window.open(link, '_blank');
+             saveAs(new Blob([s2ab(wbout)], {
+                type: "application/octet-stream"
+              }), 'test.xlsx');
+          function s2ab(s) {
+              var buf = new ArrayBuffer(s.length);
+              var view = new Uint8Array(buf);
+              for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+              return buf;
+            }
+         // var link = document.createElement("a"); 
+          //link.download = "target26.xlsx";
+          //link.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + btoa(wbexport);
+          //window.open(link, '_blank');
       });
   },
   
