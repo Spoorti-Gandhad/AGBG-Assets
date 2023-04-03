@@ -56,20 +56,17 @@ looker.plugins.visualizations.add({
         `;
       // Create a container element to let us center the text.
       this._container = element.appendChild(document.createElement("div"));
-      
     },
   
     addDownloadButtonListener: function (k) {
       const cssBoot = document.createElement('link');
       cssBoot.rel = "stylesheet";
       cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
-      // cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
       cssBoot.crossorigin = "anonymous";
       document.head.appendChild(cssBoot);
       
       const sheeetjs = document.createElement('script');
       sheeetjs.lang = "javascript";
-      // sheeetjs.src = "https://cdn.sheetjs.com/xlsx-0.19.2/package/dist/xlsx.full.min.js";
       sheeetjs.src = "https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js";
       document.head.appendChild(sheeetjs);
   
@@ -79,7 +76,8 @@ looker.plugins.visualizations.add({
   
       const xlsxjsstyle = document.createElement('script');
       xlsxjsstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js";
-      document.head.appendChild(xlsxjsstyle);  
+      document.head.appendChild(xlsxjsstyle);
+  
   
       const downloadButton = document.createElement('img');
       downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
@@ -91,47 +89,51 @@ looker.plugins.visualizations.add({
       downloadButton.addEventListener('click', () => { 
   
         var htmlTable = document.querySelector('table');
-        var rows = htmlTable.rows;for (var i = 0; i < rows.length; i++) {
+        var rows = htmlTable.rows;
+          for (var i = 0; i < rows.length; i++) {
             var cells = rows[i].cells;
+            // var r = i;
             for (var j = 0; j < cells.length; j++) {
                 var cell = cells[j];
             }
-        }  
+        }
+  
           var type = "xlsx";
-          // var ctx = { Worksheet: 'C26', table: htmlTable.innerHTML };
-          // var ctx = { Worksheet: 'C26', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>" + htmlTable.innerHTML };
-          var tableData =  htmlTable;
-          
+          // var ctx = { Worksheet: 'C26', table: htmlTable.in };
+          // var ctx = { Worksheet: 'C26', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>" + htmlTable.innerHTML };
+          var tdata = htmlTable;
+   
           const header = [
-            {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, fill: {bgColor: {rgb: "a9aaab"}}, border: {bottom: {style: "medium"}}}}
+            {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, 
+                                                                            fill: {type: "pattern", pattern: "solid", bgColor: {rgb: "a9aaab"}}, 
+                                                                            border: {bottom: {style: "medium"}}
+                                                                        }}
           ];
           const note = [
             {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}}
           ];
-          var wsheet = XLSX.utils.table_to_sheet(tableData);
+          tdata.style.border = "1px solid";
+          var wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
           wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:10, r:0}}, {s:{c:0, r:1}, e:{c:10, r:1}}, {s:{c:0, r:3}, e:{c:1, r:4}}, {s:{c:2, r:3}, e:{c:(k+1), r:3}}, {s:{c:2, r:4}, e:{c:(k+1), r:4}}];
+         
+          XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
+          XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
          
           var wbook = XLSX.utils.book_new();
           XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
           var wbexport = XLSX.write(wbook, {
-              bookType: 'xlsx',
+              bookType: type,
               bookSST: true,
               type: 'binary',
               cellStyles: true
           }); 
-             saveAs(new Blob([s2ab(wbout)], {
-                type: "application/octet-stream"
-              }), 'test.xlsx');
-          function s2ab(s) {
-              var buf = new ArrayBuffer(s.length);
-              var view = new Uint8Array(buf);
-              for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
-              return buf;
-            }
-         // var link = document.createElement("a"); 
-          //link.download = "target26.xlsx";
-          //link.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + btoa(wbexport);
-          //window.open(link, '_blank');
+ 
+          var link = document.createElement("a"); 
+          link.download = "target26.xlsx";
+          link.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + btoa(wbexport);
+          // link.click();
+          window.open(link, '_blank');
+        
       });
   },
   
